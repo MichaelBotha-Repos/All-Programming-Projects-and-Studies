@@ -1,6 +1,6 @@
 This repository contains various coding done whilst:
 1.) Fulfilling MSc in Computer Science study requirements
-2.) Studying for the Python Certified Associate Prgrammer Certification 
+2.) Studying for the Python Certified Associate Programmer Certification 
 3.) Self-exploring
 
 Various languages have been explored namely:
