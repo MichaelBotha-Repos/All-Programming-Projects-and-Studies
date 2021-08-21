@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+int main()
+{
+	char IP[30];
+	int len=0, i=0,err=0,dot=0;
+	
+	printf("Please insert an IP address in the form: num.num.num.num:");
+	scanf("%s", IP);
+	
+	while(IP[i]!='\0')
+	{
+		if(IP[i]!= '.')
+		{
+			if(IP[i]!= '1') 
+			{
+				if(IP[i]!= '2') 
+				{
+					if(IP[i]!= '3')
+					{
+						if(IP[i]!= '4') 
+						{
+							if(IP[i]!= '5')
+							{
+								if(IP[i]!= '6')
+								{
+									if(IP[i]!= '7')
+									{
+										if(IP[i]!= '8')
+										{
+											if(IP[i]!= '9') err++;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+							
+		if(IP[i]=='.') dot++;
+		len++;
+		i++;
+	}
+	
+	/*printf("%d %d %d", len, err, dot);*/
+	
+	if(len<15 || len>15 || err>0 || dot<3 || dot>3 )
+	{
+		printf("Error: not a valid address");
+	}
+	else
+	{
+		printf("Last 3 parts:");
+		
+		for(i=0; i<11; i++)
+		{
+			printf("%c", IP[i+4]);
+		}
+		printf("\nLast 2 parts:");
+		for(i=0; i<7; i++)
+		{
+			printf("%c", IP[i+8]);
+		}
+		printf("\nLast 1 part1:");
+		for(i=0; i<3; i++)
+		{
+			printf("%c", IP[i+12]);
+		}
+		
+	}
+		
+	
+	return 0;
+	
+}

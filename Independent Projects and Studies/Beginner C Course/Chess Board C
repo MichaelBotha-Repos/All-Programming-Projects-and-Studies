@@ -1,0 +1,35 @@
+# include <stdio.h>
+
+int main()
+{
+	char board[8][8];
+	int x,y;
+	
+	board[0][0] = 'R'; board[0][1]='N'; board[0][2]='B'; board[0][3]='Q'; board[0][4]='K';
+	board[0][7] = 'R'; board[0][6]='N'; board[0][5]='B';
+	board[7][0] = 'R'; board[7][1]='N'; board[7][2]='B'; board[7][3]='Q'; board[7][4]='K';
+	board[7][7] = 'R'; board[7][6]='N'; board[7][5]='B';
+	
+	for(x=1; x <7; ++x)
+	{
+		for(y=0; y<8; ++y)
+		{
+			board[x][y]=' ';
+		}
+	}
+	
+	
+	for(x=0; x<8; x++)
+	{
+		for(y=0; y<8; y++)
+		{
+			printf("%c", board[x][y]);
+		}
+		printf("%d",x);
+	}
+	
+	
+	
+	return 0;
+	
+}
