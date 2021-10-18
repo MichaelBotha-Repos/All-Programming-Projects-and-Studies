@@ -1,0 +1,61 @@
+INSERT INTO Products
+	VALUES('bosch', 'drilling machine', '750W Industrial', 'drilling', 1000.00, NULL),
+      	      ('makita', 'jigsaw', '500W home', 'woodwork', 1000, NULL),
+	      ('dewalt', 'drilling machine', '1500W Industrial', 'drilling', 5000.00, NULL),
+	      ('frag', 'welding machine', '200a inverter', 'welding', 7000.00, NULL),
+              ('hobart', 'welding rods', '50pack arc', 'welding', 300.00, NULL),
+              ('bosch', 'angle grinder', '1500W industrial', 'cutting', 5500.00, NULL),
+              ('ryobi', 'angle grinder', '750W home', 'cutting', 1000, NULL);
+
+INSERT INTO Stock
+	VALUES(1, 'ABC123'),
+	(1, 'ABC124'),
+        (1, 'ABC125'),
+        (1, 'ABC126'),
+        (1, 'ABC127'),
+        (1, 'ABC128'),
+        (2, 'DEF121'),
+	(2, 'DEF122'),
+	(2, 'DEF123'),
+	(2, 'DEF124'),
+	(3, 'XYZ120'),
+	(3, 'XYZ121'),
+	(3, 'XYZ122'),
+	(4, 'RST555'),
+	(4, 'RST556'),
+	(4, 'RST565'),
+	(4, 'RST575'),
+	(5, 'AEC123'),
+        (5, 'AEC124'),
+        (5, 'AEC125'),
+        (5, 'AEC126'),
+        (5, 'AEC127'),
+        (5, 'AEC128'),
+	(6, 'XYS120'),
+	(6, 'XYS121'),
+	(6, 'XYS122'),
+	(7, 'PYZ120'),
+	(7, 'PYZ121'),
+	(7, 'PYZ122');
+
+INSERT INTO Warehouses 
+	VALUEs('main','0333302435', NULL);
+
+
+INSERT INTO WarehouseProducts
+	VALUES(1, 1, 'A1'),
+	      (1, 2, 'A2'),
+	      (1, 3, 'Z22'),
+              (1, 4, 'B88'),
+              (1, 5, 'D1'),
+	      (1, 6, 'RR1'),
+              (1, 7, 'K9');
+
+INSERT INTO Stores
+	VALUES('main', 'Oli', '0333956758', NULL);
+
+INSERT INTO StoreWarehouses
+	VALUES(1, 1);
+
+
+

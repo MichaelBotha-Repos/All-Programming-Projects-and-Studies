@@ -1,0 +1,133 @@
+CREATE SCHEMA OnlineStore;
+USE OnlineStore;
+CREATE TABLE CustomerDetails
+( 
+	firstName VARCHAR(20) NOT NULL,
+	lastName VARCHAR(20) NOT NULL,
+	email VARCHAR(30) NOT NULL,
+	cell VARCHAR(15) NOT NULL,
+	customerID INTEGER(6) NOT NULL AUTO_INCREMENT,
+	UNIQUE(customerID),
+	PRIMARY KEY(firstName, LastName, email)
+);
+
+
+CREATE TABLE LoginDetails
+(
+	customerID INTEGER(10) NOT NULL,
+	username VARCHAR(20) NOT NULL,
+	password VARCHAR(20) NOT NULL,
+	loggedIn BOOLEAN NOT NULL,
+	PRIMARY KEY(customerID),
+	FOREIGN KEY(customerID) REFERENCES CustomerDetails(customerID)
+
+);
+
+
+CREATE TABLE CustomerFinancialDetails
+(
+	customerID INTEGER(10) NOT NULL,
+	bankName VARCHAR(20) NULL,
+	cardNumber VARCHAR(20) NULL,
+	nameOnCard VARCHAR(20) NULL,
+	PRIMARY KEY(customerID),
+	FOREIGN KEY(customerID) REFERENCES CustomerDetails(customerID)
+
+);
+
+CREATE TABLE CustomerAddress
+(
+	customerID INTEGER(10) NOT NULL,
+	houseNumber VARCHAR(20) NOT NULL,
+	street VARCHAR(20) NOT NULL,
+	province VARCHAR(20) NOT NULL,
+	code VARCHAR(20) NOT NULL,
+	country VARCHAR(20) NOT NULL,
+	PRIMARY KEY(customerID),
+	FOREIGN KEY(customerID) REFERENCES CustomerDetails(customerID)
+
+);
+
+CREATE TABLE Products
+( 
+	manufacturer VARCHAR(30) NOT NULL,
+	description VARCHAR(30) NOT NULL,
+	model VARCHAR(30) NOT NULL,
+	category VARCHAR(30) NOT NULL,
+	price DECIMAL(8, 2),
+	productID INTEGER(6) NOT NULL AUTO_INCREMENT,
+	UNIQUE(productID),
+	PRIMARY KEY(manufacturer, description, model)
+);
+
+
+CREATE TABLE Stock
+(
+	productID INTEGER(6) NOT NULL,
+	serialNum VARCHAR(20) NOT NULL,
+	PRIMARY KEY(productID, serialNum),
+	FOREIGN KEY(productID) REFERENCES Products(productID)
+
+);
+
+CREATE TABLE Orders
+(
+	customerID INTEGER(6) NOT NULL,
+	productID INTEGER(6) NOT NULL,
+	warehouseID INTEGER(6) NOT NULL,
+	deliveryOption INTEGER(6) NOT NULL,
+	PRIMARY KEY(productID, customerID, warehouseID)
+
+);
+
+CREATE TABLE Warehouses
+( 
+	name VARCHAR(20) NOT NULL,
+	contact VARCHAR(15) NOT NULL,
+	warehouseID INTEGER(6) NOT NULL AUTO_INCREMENT,
+	UNIQUE(warehouseID),
+	PRIMARY KEY(name)
+);
+
+
+CREATE TABLE WarehouseProducts
+(
+	warehouseID INTEGER(6) NOT NULL,
+	productID INTEGER(6) NOT NULL,
+	location VARCHAR(20) NOT NULL,
+	PRIMARY KEY(warehouseID, productID),
+	FOREIGN KEY(warehouseID) REFERENCES Warehouses(warehouseID),
+	FOREIGN KEY(productID) REFERENCES Products(productID)
+
+);
+
+CREATE TABLE Stores
+( 
+	name VARCHAR(20) NOT NULL,
+	manager VARCHAR(20) NOT NULL,
+	contact VARCHAR(15) NOT NULL,
+	storeID INTEGER(6) NOT NULL AUTO_INCREMENT,
+	UNIQUE(storeID),
+	PRIMARY KEY(name)
+);
+
+CREATE TABLE StoreWarehouses
+(
+	storeID INTEGER(6) NOT NULL,
+	warehouseID INTEGER(6) NOT NULL,
+	PRIMARY KEY(storeID, warehouseID),
+	FOREIGN KEY(storeID) REFERENCES Stores(storeID),
+	FOREIGN KEY(warehouseID) REFERENCES Warehouses(warehouseID)
+
+);
+
+--Not required yet
+--CREATE TABLE Suppliers
+--(
+--	productID INTEGER(6) NOT NULL,
+--	supplier VARCHAR(20) NOT NULL,
+--	PRIMARY KEY(productID, supplier),
+--	FOREIGN KEY(productID) REFERENCES Products(productID)
+--
+--);
+

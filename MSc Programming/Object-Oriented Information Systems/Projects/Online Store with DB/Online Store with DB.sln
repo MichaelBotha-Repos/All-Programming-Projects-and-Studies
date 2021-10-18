@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Online Store with DB", "Online Store with DB\Online Store with DB.pyproj", "{6577E488-2F16-4A7A-B791-5360EBE4B5BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6577E488-2F16-4A7A-B791-5360EBE4B5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6577E488-2F16-4A7A-B791-5360EBE4B5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF849774-3126-466D-9435-5DA14991A503}
+	EndGlobalSection
+EndGlobal
