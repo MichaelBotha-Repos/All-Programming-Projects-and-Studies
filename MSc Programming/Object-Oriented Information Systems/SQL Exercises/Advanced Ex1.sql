@@ -48,5 +48,3 @@ join (select BusType.tdescript, Training.tno, Training.bdno
      ) as join1
 on BusDriver.bdno = join1.bdno;
       
---List all cleaners (number and name), the name of their depot and the 
---bus registration numbers with the type of bus that they are responsible for.
