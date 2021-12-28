@@ -73,6 +73,17 @@ if not re.match(r'..[A, B, C, D, E, F, G, H, J, K, S, T, U, W]', code):
 # Check incode has 3 characters
 if not re.search(r'\s...$', code):
     print("The incode must have three characters")
+    
+# Check incode in format: Numeric, Alpha, Alpha
+if not re.search(r'\d\w\w', code):
+    print('Must be in format NumericAlphaAlpha')
+
+
+# Ensure correct letters are used in incode
+if re.search(r'[C, I, K, M, O, V]..$', code)\
+or re.search(r'.[C, I, K, M, O, V].$', code)\
+or re.search(r'.[C, I, K, M, O, V]$', code):
+    print('Incorrect letter used in incode')
 
 
 
