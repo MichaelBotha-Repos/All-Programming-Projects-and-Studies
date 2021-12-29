@@ -33,29 +33,54 @@ print(count)
 '''
 
 
-''' My code to attempt to resolve the problem '''
+''' My code, modifying the above, but keeping the same logic '''
 
-def tower(stack_a = [], stack_b = [], stack_c = []):
-    global disk_num 
-    stack_a = [i + 1 for i in reversed(range(disk_num))]
+def tower(num_disks, stack_a, stack_b, stack_c):
+    """ Using double nested recursion to fulfill the algorithm  """
 
-    if(stack_b == [i + 1 for i in reversed(range(disk_num))] ):
+    # Condition to end recursion
+    if num_disks == 0:
         return
-    else:
+
+    global moves
+    moves += 1
+
+    # move n-1 discs from stack_a to stack_b
+    tower(num_disks -1, stack_a, stack_c, stack_b)
+
+    if stack_a:
+        stack_c.append(stack_a.pop())
         print(stack_a, stack_b, stack_c)
-        tower(stack_a, stack_b, stack_c)
 
-
-
+    # move n-1 discs from stack_b to stack_c
+    tower(num_disks -1, stack_b, stack_a, stack_c)
 
 
 while True:
     try:
-        disk_num = int(input('please enter the number of disks:\n'))
+        num_disks = int(input('please enter the number of disks:\n'))
         break
 
     except:
         continue
 
-tower(disk_num)
+stack_a = [i + 1 for i in reversed(range(num_disks))]
+stack_b = []
+stack_c = []
+
+print(stack_a, stack_b, stack_c)
+moves = 0
+tower(num_disks, stack_a, stack_b, stack_c)
+print(moves)
+
+
+
+
+
+
+
+
+
+
+
 
