@@ -10,17 +10,19 @@ Questions:
 
 Answers:
 1.) Yes I do, because it applies the principle of authorisation to data specifically,
-    ensuring that the data carries a form of metadata. 
+    ensuring that the data carries a form of metadata and thereby ownership. 
 2.) Pros:
-    > Does not require multiple systems for ..
+    > Allocates ownership to data. 
+    > Does not require multiple systems for different levels of data secrecy.
 
     Cons:
-    > May decrease code performance due to additional checking
-    > Increases data size due to the additional metadata appended to each value
+    > May decrease code performance due to additional checking requried.
+    > Increases data size due to the additional metadata appended to each value.
 
 3.) Please refer to the below program, where a class is created to represent data
-    in a system. The class inherits standard Python data types and adds the features
-    inher in faceted data. 
+    in a system. The class inherits a standard Python data type and adds the features
+    inherent in faceted data viz. owners and views. This meta data will be checked
+    whenever a user wants to access or alter data.
     
 
 """
@@ -28,19 +30,21 @@ Answers:
 class FacetedString(str):
     """
         This class extends the native string class
-        by addng faceted data metadata
+        by adding faceted metadata
     """
     
-    def __init__(self, string, user, view):
+    def __init__(self, string):
         """ An object is initialised by adding the faceted data
             elements to it"""
-        
-        self.string = string
-        self.string = string + "<<>>" + str(user) + str(view)
+
+        super().__init__()
+        #self.string = string + "<<>>" + user + view
 
 # Example use
 
-
+test_data = "Bank: FNB ID: 85467834"
+faceted_test_data = FacetedString(test_data)
+#print(faceted_test_data.string)
 
 
 
