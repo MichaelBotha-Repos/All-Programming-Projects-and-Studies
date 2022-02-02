@@ -9,7 +9,7 @@ Questions:
 3.) Create a basic outline design of how you would create such a system in Python.
 
 Answers:
-1.) Yes I do, because it applies the principle of authorisation to data specifically,
+1.) Yes I do, because it applies the principle of authorisation specifically to data,
     ensuring that the data carries a form of metadata and thereby ownership. 
 2.) Pros:
     > Allocates ownership to data. 
