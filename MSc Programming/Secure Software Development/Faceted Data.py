@@ -10,13 +10,16 @@ Questions:
 
 Answers:
 1.) Yes I do, because it applies the principle of authorisation specifically to data,
-    ensuring that the data carries a form of metadata and thereby ownership. 
+    ensuring that the data carries a form of metadata and thereby ownership
+    (Schmitz et al., 2016). 
 2.) Pros:
-    > Allocates ownership to data. 
-    > Does not require multiple systems for different levels of data secrecy.
+    > Allocates ownership to data (Schmitz et al., 2016). 
+    > Does not require multiple systems for different
+      levels of data secrecy (Schmitz et al., 2016).
 
     Cons:
-    > May decrease code performance due to additional checking required.
+    > May decrease code performance due to additional
+      checking required (Schmitz et al., 2016).
     > Increases data size due to the additional metadata appended to each value.
 
 3.) Please refer to the below program, where a class is created to represent data
@@ -25,7 +28,15 @@ Answers:
     whenever a user wants to access or alter data.
 
     Another method is to simply create a list with the first element being the
-    original data and the second,third and so on the meta data.   
+    original data and the second,third and so on the meta data.
+
+References:
+
+Schmitz, T., Rhodes, D., Austin, T.H., Knowles, K., Flanagan, C. (2016)
+Faceted Dynamic Information Flow via Control and Data Monads. In: Piessens F., Viganò L.
+(eds) Principles of Security and Trust. POST 2016.
+Lecture Notes in Computer Science, vol 9635. Springer, Berlin, Heidelberg
+
 
 """
 
