@@ -44,17 +44,31 @@ class TimeInterval:
         return time_dict
 
     def __add__(self, other):
-        self.time1_dict = self.convert(self.total_time)
-        self.time2_dict = other.convert(other.total_time)
-        """
-        total_dict = {'hour' : time1_dict['hour'] + time2_dict['hour'], 
-                      'min' : time1_dict['min'] + time2_dict['min'],
-                      'sec' : time1_dict['sec'] + time2_dict['sec']}
-        """
-        return [self.time1_dict, self.time2_dict]
+        if type(other).__name__ == 'int':
+            return self.convert(self.total_time + other)
+        else:
+            return self.convert(self.total_time + other.total_time)
+
+    def __sub__(self, other):
+        if type(other).__name__ == 'int':
+            return self.convert(self.total_time - other)
+        else:
+            return self.convert(self.total_time - other.total_time)
+
+    def __mul__(self, other):
+        return self.convert(self.total_time * other)
+
+    def __str__(self):
+        time_dict = self.convert(self.total_time)
+        return f"{time_dict['hour']}:{time_dict['min']}:{time_dict['sec']}" 
 
 
 time1 = TimeInterval(4, 5, 30)
 time2 = TimeInterval (sec = 500)
 
 print(time1 + time2)
+print(time1 - time2)
+print(time1 + 1000)
+print(time2 -30)
+print(time1 * 5)
+print(time1)
