@@ -15,3 +15,32 @@ observe the output differences. Was the Printer class utilized each time?
 
 """
 
+class Scanner:
+    def scan(self):
+        print("scan() from Scanner")
+
+class Printer:
+    def print2(self):
+        print("print() from printer")
+
+class Fax:
+    def send(self):
+        print("send() from Fax")
+    def print2(self):
+        print("print() from Fax")
+
+class MFD_SPF(Scanner, Printer, Fax):
+    pass
+class MFD_SFP(Scanner, Fax, Printer):
+    pass
+
+mfd1 = MFD_SPF()
+mfd2 = MFD_SFP()
+
+mfd1.scan()
+mfd1.print2()
+mfd1.send()
+
+mfd2.scan()
+mfd2.print2()
+mfd2.send()
