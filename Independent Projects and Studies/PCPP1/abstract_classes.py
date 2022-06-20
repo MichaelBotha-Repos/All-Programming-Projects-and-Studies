@@ -23,13 +23,55 @@ Instantiate MFD1, MFD2 and MFD3 to demonstrate their abilities. All devices shou
 
 import abc
 
-
 class Scanner(abc.ABC):
 
     @abc.abstractmethod
-    def scan_document(self):
-        return "123"
+    def __init__(self, sres, ssn):
+        self.sres = sres
+        self.ssn = ssn
 
     @abc.abstractmethod
-    def printer(self):
-        pass
+    def scan_document(self):
+        return "document scanned"
+
+    @abc.abstractmethod
+    def get_scanner_status(self):
+        return [self.sres, self.ssn]
+
+class Printer(abc.ABC):
+
+    @abc.abstractmethod
+    def __init__(self, pres, psn):
+        self.pres = pres
+        self.psn = psn
+
+    @abc.abstractmethod
+    def print_document(self):
+        return "document printed"
+
+    @abc.abstractmethod
+    def get_printer_status(self):
+        return [self.pres, self.psn]
+
+class MFD1(Scanner, Printer):
+    def __init__(self, sres, pres, sn):
+        self.sres = sres
+        self.pres = pres
+        self.sn = sn
+
+    def scan_document(self):
+        return "document scanned"
+
+    def get_scanner_status(self):
+        return [self.sres, self.ssn]
+
+    def print_document(self):
+        return "document printed"
+
+    def get_printer_status(self):
+        return [self.pres, self.sn]
+
+
+
+one = MFD1(1000, 500, 'thasg')
+print(one.get_printer_status())
