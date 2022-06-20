@@ -25,6 +25,11 @@ import abc
 
 
 class Scanner(abc.ABC):
-    @abc.abstractclassmethod
+
+    @abc.abstractmethod
     def scan_document(self):
-        return 
+        return "123"
+
+    @abc.abstractmethod
+    def printer(self):
+        pass
