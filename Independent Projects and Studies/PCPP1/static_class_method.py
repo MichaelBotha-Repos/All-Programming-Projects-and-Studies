@@ -25,16 +25,16 @@ class Watch():
 
     def __init__(self, **kwargs):
         Watch.watches_created += 1
-        watch_parameters = self.kwargs
+        self.watch_parameters = kwargs
 
     @classmethod
-    def engraved_watch(cls, text, **kwargs):
-        if validate_text(text):
+    def engraved_watch(cls, text):
+        if Watch.validate_text(text):
             watch = cls()
             watch.engraving = text
+            return watch
         else:
             raise ValueError
-
 
     @staticmethod
     def validate_text(text):
@@ -45,5 +45,13 @@ class Watch():
 
     @classmethod
     def get_number_of_watches_created(cls):
-        pass
+        return cls.watches_created
 
+watch_no_engraving = Watch(colour = "gold", type = "Roman numeral")
+print(Watch.watches_created)
+print(watch_no_engraving.__dict__)
+
+watch_engraving = Watch.engraved_watch("IloveYou")
+print(watch_engraving.engraving)
+print(Watch.watches_created)
+print(type(watch_engraving))
