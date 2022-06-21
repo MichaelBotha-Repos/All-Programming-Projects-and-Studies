@@ -16,12 +16,4 @@ the first one is a city car, built of an electric engine and city tires
 the second one is an all-terrain car build of a petrol engine and off-road tires
 play with the cars by calling methods responsible for interaction with components.
  
- Sandbox
-Code
-
-
-
-Console 
-Prev Next
-We us
 """
