@@ -2,6 +2,8 @@
 Try to extend the check list script to handle more different checks, all reported as RocketNotReady exceptions.
 Add your own checks for: batteries and circuits.
 
+"""
+
 class RocketNotReadyError(Exception):
     pass
 
@@ -23,8 +25,14 @@ def fuel_check():
         raise RocketNotReadyError('Problem with fuel gauge') from e
 
 def batteries_check():
-    # add your own implentation
-    pass
+    global batteries
+    try:
+        if batteries < 100:
+            x = 100/0
+
+    except Exception as e:
+        raise RocketNotReadyError('SoC low') from e
+
 
 def circuits_check():
     # add your own implentation
@@ -32,7 +40,8 @@ def circuits_check():
 
 
 crew = ['John', 'Mary', 'Mike']
-fuel = 100
+fuel = 50
+batteries = 50
 check_list = [personnel_check, fuel_check, batteries_check, circuits_check]
 
 print('Final check procedure')
@@ -42,4 +51,3 @@ for check in check_list:
         check()
     except RocketNotReadyError as f:
         print('RocketNotReady exception: "{}", caused by "{}"'.format(f, f.__cause__))
-"""
