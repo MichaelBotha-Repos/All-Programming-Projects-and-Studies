@@ -1,3 +1,5 @@
+import serial
+
 
 # Bit representation:
 # D3-D2-D1-D0-A2-A1-A0-Data_Startbit (two start bits required)
@@ -13,3 +15,11 @@ print(first_frame, type(first_frame))
 print(second_frame)
 # Printing the data stream in binary showing 16bits 
 print(f"{data_stream : 16b}")
+
+connection = serial.Serial( 
+                            port = 'COM5',
+                            baudrate = 9600,
+                            write_timeout = 0
+                          )
+
+result = connection.write(data_stream)
