@@ -1,13 +1,22 @@
 #include <stdio.h>
 
-int main()
+void main()
 {
-    int value;
+    int counter = 0;
+    
+    do 
+    {
+        printf("Fun in the sun\n");
+        //counter --;
+    }while(counter > 0);
 
-    printf("Please enter an integer\n");
-    scanf("%d", &value);
+    for(int i = 0; i < 10; i++)
+    {
+        if(i == 5)continue;
+        printf("%i -> in my for loop\n", i);
 
-    printf("variable value = %d\nvariable memory location = %d", value, &value);
+        if(i == 8)break;
 
-    return 0;
+    }
+
 }
