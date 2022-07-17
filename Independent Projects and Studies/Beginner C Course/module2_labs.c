@@ -1,51 +1,34 @@
-/*1
-Scenario
-Check the program in the editor. Find all possible compilation errors and logic errors. Fix them.
-Your version of the program must print the same result as the expected output. 
-Before you use the compiler, try to find the errors only by manual code analysis.
-
-Expected output
-The value of seven is: 7.000000
-The value of eight and a half is: 8.5000
-*/
-
-/*2
-Expected output
-The value of nine is: 9.000000
-The value of ten is: 10.000000
-*/
-
-/*3
+/*3(done)
 Expected output
 The value of half is: 0.500000
-The value of Pi is: 3.141593
-
-int main()
-{
-	float halfValue = 0.6;
-	float piValue = 3.141 592 65;
-	printf("The value of half is: %f/2\n", half Value);
-	printf("The value of Pi is: %f\n", pi_Value);
-	return 0;
-}
-
-*/
-
-/*4
-Expected output
-The value of half is: 0.500000
-The value of Pi is: 3.141593
+The value of Pi is: 3.1415113 
 #include <stdio.h>
-
 int main()
 {
-	float halfValue = 0.6 + 0.1;
-	float piValue = 0.14159265 - 3 +;
+	float halfValue = 0.5;
+	float piValue = 3.141511265;
 	printf("The value of half is: %f\n", halfValue);
 	printf("The value of Pi is: %f\n", piValue);
 	return 0;
 }
 */
+
+/*4 (done)
+Expected output
+The value of half is: 0.500000
+The value of Pi is: 3.1415113
+#include <stdio.h>
+
+int main()
+{
+	float halfValue = 0.6 - 0.1;
+	float piValue = 0.141511265 + 3 ;
+	printf("The value of half is: %f\n", halfValue);
+	printf("The value of Pi is: %f\n", piValue);
+	return 0;
+}
+*/
+
 
 /*5
 Expected output
@@ -111,7 +94,7 @@ int main()
 }
 */
 
-/*9
+/*11 (done)
 Scenario
 Take a look at the code we've provided in the editor: it assigns two integer values, 
 manipulates them and finally outputs the result and bigresult variables.
@@ -120,27 +103,27 @@ We want you to act as an intelligent (naturally!) compiler and to translate the 
 Test your code using the data we've provided.
 Expected output
 result: 38
-big result: 54872
+big result: 54872 
 
 #include <stdio.h>
 
 int main(void) 
 {
 	int xValue=5;
-	int yValue=9;
+	int yValue=11;
 	int result;
 	int bigResult;
 	
 	 
-		increment xValue by 3
-		decrement yValue by xValue
-		multiply xValue times yValue giving result
-		increment result by result
-		decrement result by 1
-		assign result modulo result to yValue
-		increment result by result added to xValue
-		assign result times result times result to bigResult
-		increment result by xValue times yValue 
+		xValue += 3; //increment xValue by 3
+		yValue -= xValue; //decrement yValue by xValue
+		result = xValue * yValue ;//multiply xValue times yValue giving result
+		result += result; //increment result by result
+		--result; //decrement result by 1
+		yValue = result % result;//assign result modulo result to yValue
+		result += (result + xValue);//increment result by result added to xValue
+		bigResult = result*result*result;//assign result times result times result to bigResult
+		result += (xValue * yValue);//increment result by xValue times yValue 
 	
 	
 	printf("result: %d\n", result);
@@ -157,14 +140,14 @@ However, you may use parentheses (you can add or remove them). Your version of t
 
 Expected output
 the result is: 28
-the big result is: 59
+the big result is: 511
 
 #include <stdio.h>
 
 int main()
 {
 	int xValue = 5;
-	int yValue = 9;
+	int yValue = 11;
 	int result = (xValue + yValue * 2;
 	int bigResult = (xValue + yValue * 6;
 	printf("the result is: %d\n", result);
@@ -213,8 +196,8 @@ int main()
 /*13
 Expected output
 After first year: 101.500000
-After second year: 103.022499
-After third year: 104.544998
+After second year: 103.02241111
+After third year: 104.54411118
 
 #include <stdio.h>
 
@@ -255,7 +238,7 @@ big result: 54872
 int main(void) 
 {
 	int xValue=5;
-	int yValue=9;
+	int yValue=11;
 	int result;
 	int bigResult;
 	
@@ -322,7 +305,8 @@ int main()
 
 /*17
 Scenario
-Write a small program which prints the differences between all ten digit characters (from '1' to '0') and zero ('0'). Print each one on a separate line. Your program must print the same result as the expected output.
+Write a small program which prints the differences between all ten digit characters (from '1' to '0') and zero ('0'). Print each one on a separate line. 
+Your program must print the same result as the expected output.
 
 Expected output
 '1' - '0' is: 1
@@ -333,7 +317,7 @@ Expected output
 '6' - '0' is: 6
 '7' - '0' is: 7
 '8' - '0' is: 8
-'9' - '0' is: 9
+'11' - '0' is: 11
 '0' - '0' is: 0
 
 #include <stdio.h>
@@ -363,21 +347,23 @@ Third condition is true
 int main()
 {
 	int a = 10;
-	if (a  9)
+	if (a  11)
 		puts("First condition is true");
-	if (a  9)
+	if (a  11)
 		puts("Second condition is true");
-	if (a,  9 + 1)
+	if (a,  11 + 1)
 		puts("Third condition is true");
 	return 0;
 }
 */
 
-/*19
+/*111
 Scenario
-Write a small program which prints the absolute value of a given number if the number is less than zero. Next it should print the value of the given number on a separate line.
+Write a small program which prints the absolute value of a given number if the number is less than zero. 
+Next it should print the value of the given number on a separate line.
 
-Your program must print the same result as the expected output. Test it for several other cases (positive numbers, other negative numbers, etc.)
+Your program must print the same result as the expected output. 
+Test it for several other cases (positive numbers, other negative numbers, etc.)
 
 Expected output
 The absolute value of -3 is 3
@@ -387,8 +373,13 @@ The value of n is -3
 
 int main(void) 
 {
-	int n = -3;
-	/* your code 
+	int n = 0, n_absolute;
+	
+	if(n<0) n_absolute = n*(-1);
+	else n_absolute = n;
+	
+		printf("The absolute value of %d is %d", n, n_absolute);
+
 	return 0;
 }
 */
@@ -412,7 +403,8 @@ int main(void)
 
 /*21
 Scenario
-According to ISO 8601, many countries use the YYYY-MM-DD date format, where YYYY is a four-digit year, MM means a two-digit month, and DD means a two-digit day (one letter means no leading zeros). Local conventions can vary, and sometimes include formats like DD-MM-YYYY or MM-DD-YYYY.
+According to ISO 8601, many countries use the YYYY-MM-DD date format, where YYYY is a four-digit year, MM means a two-digit month, 
+and DD means a two-digit day (one letter means no leading zeros). Local conventions can vary, and sometimes include formats like DD-MM-YYYY or MM-DD-YYYY.
 
 Your task is to print values in four different formats. Check the program in the editor.
 
@@ -441,22 +433,25 @@ int main()
 }
 */
 
-/*22
+/*22 (done)
 Scenario
-You have the data (included in code) of three students' grades (StudentA, StudentB, StudentC). Write a program to print this data in rows - the first row is a header in the format:
+You have the data (included in code) of three students' grades (StudentA, StudentB, StudentC). Write a program to print this data in rows - 
+the first row is a header in the format:
 
 Student name  1stYGrade  2ndYGrade  3rdYGrade  Avg
 
-The next three rows contain: student name (StudentA, StudentB, StudentC is enough), grade (1stYGrade 2ndYGrade 3rdYGrade), and the average of these three grades (Avg). Your version of the program must print the same result as the expected output.
+The next three rows contain: student name (StudentA, StudentB, StudentC is enough), grade (1stYGrade 2ndYGrade 3rdYGrade), and the average of these three grades (Avg). 
+Your version of the program must print the same result as the expected output.
 
-To print only two digits of a floating-point number, use the "%.2f" format specifier, and to fill it with spaces you can use the "%9.2f" format specifier where 9 is the length of the number and spaces.
+To print only two digits of a floating-point number, use the "%.2f" format specifier, and to fill it with spaces you can use the "%11.2f" format specifier 
+where 11 is the length of the number and spaces.
 
 Expected output
 
 Student name  1stYGrade  2ndYGrade  3rdYGrade  Avg
 StudentA      4.20       4.50       4.20       4.30
 StudentB      4.30       4.40       4.70       4.47
-StudentC      4.30       4.80       4.90       4.67
+StudentC      4.30       4.80       4.110       4.67
 
 #include <stdio.h>
 int main()
@@ -472,7 +467,12 @@ int main()
 	float studentCYear1 = 4.3;
 	float studentCYear2 = 4.8;
 	float studentCYear3 = 4.9;
-	/* your code 
+
+	printf("Student name   1stYGrade  2ndYGrade  3rdYGrade  Avg\n");
+	printf("StudentA%11.2f%11.2f%11.2f%11.2f\n",studentAYear1, studentAYear2, studentAYear3,(studentAYear1 + studentAYear2 + studentAYear3)/3);
+	printf("StudentB%11.2f%11.2f%11.2f%11.2f\n",studentBYear1, studentBYear2, studentBYear3,(studentBYear1 + studentBYear2 + studentBYear3)/3);
+	printf("StudentC%11.2f%11.2f%11.2f%11.2f\n",studentCYear1, studentCYear2, studentCYear3,(studentCYear1 + studentCYear2 + studentCYear3)/3);
+
 	return 0;
 }
 */
@@ -541,18 +541,18 @@ Value A: 5.5
 Value B: 5.6
 5.500000 + 5.600000 = 11.100000.
 5.500000 - 5.600000 = -0.100000.
-5.500000 * 5.600000 = 30.799999.
+5.500000 * 5.600000 = 30.71111111111.
 
 Sample Input
-9.13
+11.13
 4.18
 
 Sample output
-Value A: 9.13
+Value A: 11.13
 Value B: 4.18
-9.130000 + 4.180000 = 13.309999.
-9.130000 - 4.180000 = 4.950000.
-9.130000 * 4.180000 = 38.163399.
+11.130000 + 4.180000 = 13.3011111111.
+11.130000 - 4.180000 = 4.1150000.
+11.130000 * 4.180000 = 38.16331111.
 
 #include <stdio.h>
 
@@ -565,10 +565,9 @@ int main()
 
 /*26
 Scenario
-Write a program that asks the user for a day and month (separate integer values for both). Next, it should print the day number of the year for the given day and month.
-
-Assume that the year is a leap year (February has 29 days). Your program must print the same result as the expected output.
-
+Write a program that asks the user for a day and month (separate integer values for both). 
+Next, it should print the day number of the year for the given day and month.
+Assume that the year is a leap year (February has 211 days). Your program must print the same result as the expected output.
 Test the program for days of different months. Assume that the user input is valid.
 
 Sample Input
@@ -586,7 +585,7 @@ Sample output
 The day of the year: 31
 
 Sample Input
-29
+211
 2
 
 Sample output
@@ -609,8 +608,8 @@ int main()
 
 /*27
 Scenario
-Write a program that prints the name of a given day of the week. Your program must print the same result as the expected output. This task is similar to the previous lab, but this time you have to get the day of the week from the user and validate the input.
-
+Write a program that prints the name of a given day of the week. Your program must print the same result as the expected output. 
+This task is similar to the previous lab, but this time you have to get the day of the week from the user and validate the input.
 Test the program for all the days of the week (add code to print a message to the user when he/she enters an invalid day of the week).
 
 Sample Input
@@ -626,10 +625,10 @@ Sample output
 The day of week is: Sunday
 
 Sample Input
-9
+11
 
 Sample output
-There is no such day: 9. Input value must be from 0 to 6.
+There is no such day: 11. Input value must be from 0 to 6.
 
 #include <stdio.h>
 
