@@ -35,16 +35,12 @@ int main(void)
 
 /*2
 Scenario
-The most popular, human-readable way to write an IP (to be precise, IPv4) is to write four numbers separated with dots (e.g., 127.0.0.1). But an IP address can also be written as a 32-bit number.
-
+The most popular, human-readable way to write an IP (to be precise, IPv4) is to write four numbers separated with dots (e.g., 127.0.0.1). 
+But an IP address can also be written as a 32-bit number.
 To get this form, you must multiply all the parts of the IP number by powers of 256 (256*256*256, 256*256, 256 and 1 - don't use precomputed versions).
-
 Write a program that asks the user to provide four numbers, and then checks if these numbers are more than or equal to 0, and less than or equal to 255.
-
 Next, the program should write both forms of the IP address: the human-readable one and the 32-bit-number one.
-
 Use the unsigned long int type; to print it, use the "%lu" format in the printf function.
-
 If any of the address parts doesn't meet the given criteria (0<=x<=255), print only this simple error message: Inccorect IP Address..
 
 Your version of the program must print the same result as the expected output.
@@ -78,6 +74,34 @@ Sample Input
 Expected output
 Incorrect IP Address.
 */
+
+#include <stdio.h>
+
+void main()
+{
+	int octet, answer;
+	unsigned long ip;
+
+	for(int i= 4 ; i > 0; i--)
+	{	
+		printf("Please input %i octet:\n", i );
+		scanf("%i", &octet);
+		if(octet<0 || octet>255)
+		{
+			printf("incorrect ip address");
+
+		}
+		else
+		{
+			ip = (ip << 8) | octet;
+
+		}
+
+	}
+ 	printf("IP address as 32-bit number: %lu", ip);
+	printf("Human-readable IP address: %lu.%lu.%lu.%lu", (ip&4278190080)>>24, (ip&16711680)>>16, (ip&65280)>8, ip&255);
+
+}
 
 /*3
 Scenario
