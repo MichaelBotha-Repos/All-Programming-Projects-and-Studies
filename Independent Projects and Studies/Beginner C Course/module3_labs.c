@@ -74,7 +74,7 @@ Sample Input
 Expected output
 Incorrect IP Address.
 */
-
+/* Done
 #include <stdio.h>
 
 void main()
@@ -102,6 +102,7 @@ void main()
 	printf("Human-readable IP address: %lu.%lu.%lu.%lu", (ip&4278190080)>>24, (ip&16711680)>>16, (ip&65280)>8, ip&255);
 
 }
+*/
 
 /*3
 Scenario
@@ -134,6 +135,10 @@ Sample Input
 Expected output
 Good
 */
+
+
+
+
 
 /*4
 Scenario
@@ -241,6 +246,32 @@ Expected output
 *#
 
 */
+
+/*
+#include <stdio.h>
+
+void main()
+{
+	int num, inner, store;
+
+	printf("Please enter a number:\n");
+	scanf("%d", &num);
+	store = num;
+	for(num; num >= 0; --num)
+	{
+		inner = store - num;
+		for(inner; inner > 0; inner--)
+		{
+			printf("*#");
+		}	
+		printf("\n");
+	}
+}
+
+*/
+
+
+
 
 /*7
 Scenario
