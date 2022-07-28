@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 
-void main()
+int main()
 {
-   // or is a disjunction
-   // and is a conjunction
+    char name[] = "Amy ";
+    int length = strlen(name);
+    printf("%i", length);
 
-   
-
+    return 0;
 }
