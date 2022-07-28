@@ -1,4 +1,4 @@
-/*1
+/*1 (Done)
 Scenario
 Write a program that asks the user to enter the number of a month, and prints the name of that month on the screen.
 
@@ -37,13 +37,40 @@ Sample Input
 
 Expected output
 Error: no such month in my calendar.
+
+#include <stdio.h>
+
+void main()
+{
+	
+	while(1)
+	{
+		int month;
+		printf("Please enter a number of month:\n");
+		scanf("%i", &month);
+		switch(month)
+		{
+			case 1: printf("January");break;
+			case 2: printf("February");break;
+			case 3: printf("March");break;
+			default: printf("Error: no such month in the calendar");
+
+		}
+		if(month==111)break;
+		
+	}
+	
+
+
+}
 */
 
 /*2
 Scenario
-Write a program that asks the user to enter the number of a month, and prints the number of days before this month since the start of the year.
-
-When the number does not correspond to a month (less than 1 or greater than 12), the program prints: Error: no such month in my calendar..
+Write a program that asks the user to enter the number of a month, and prints the number of days before this month 
+since the start of the year.
+When the number does not correspond to a month (less than 1 or greater than 12), 
+the program prints: Error: no such month in my calendar..
 
 Use only switch for computing the sum of the days (don't use any loops).
 
@@ -135,18 +162,65 @@ Expected output
 8
 21
 55
+
+#include <stdio.h>
+
+void main()
+{
+	int count=0, val,i =0;
+	int sequence[20];
+
+	printf("please input number of sequence:\n");
+	scanf("%i", &val);
+	while(count != val)
+	{	
+		if(count == 0)
+		{
+			sequence[0] = 1;
+			//printf("%i\n", sequence[0]);
+			count++;
+		}
+		else if (count == 1)
+		{
+
+			sequence[1] = 1;
+			//printf("%i", sequence[1]);
+			count++;
+		}
+		else
+		{
+			sequence[count] = sequence[count -1] + sequence[count-2];
+			//printf("%i", sequence[count]);
+			count++;
+		}
+
+
+	}
+	for(i=0; i<count; i++)
+	{
+		printf("%i-", sequence[i]);
+	}
+	printf("\n");
+	for(i=0; i<count; i+=2)
+	{
+		printf("%i-", sequence[i]);
+	}
+	printf("\n");
+	for(i=1; i<count; i+=2)
+	{
+		printf("%i-", sequence[i]);
+	}
+}
 */
 
 /*4
 Scenario
-Write a program that fills a 26-element array with letters from "a" to "z". Try not to use the int type, but only the char type for variables.
-
-When the array is filled, the program should print all the characters in reverse order, then print only the array elements that constitute the word "great".
-
+Write a program that fills a 26-element array with letters from "a" to "z". 
+Try not to use the int type, but only the char type for variables.
+When the array is filled, the program should print all the characters in reverse order, 
+then print only the array elements that constitute the word "great".
 Figure out the simplest way to find out which elements should be used.
-
 Your version of the program must print the same result as the expected output.
-
 Expected output
 
 z
