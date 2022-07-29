@@ -213,7 +213,7 @@ void main()
 }
 */
 
-/*4
+/*4 (DONE)
 Scenario
 Write a program that fills a 26-element array with letters from "a" to "z". 
 Try not to use the int type, but only the char type for variables.
@@ -227,29 +227,37 @@ z
 y
 x
 w
-v
-u
-t
-s
-r
-q
-p
-o
-n
-m
-l
-k
-j
-i
-h
-g
-f
+.
+.
+.
 e
 d
 c
 b
 great
+
+#include <stdio.h>
+
+void main()
+{
+	char alpha[26];
+	int i;
+	alpha[0] = 'a';
+	for(i=1; i<26; i++)
+	{
+		alpha[i] = alpha[i-1] + 1;
+
+	}
+
+	for(i=25; i>0; i--)
+	{
+		printf("%c\n", alpha[i]);
+	}
+
+}
 */
+
+
 
 /*5
 Scenario
