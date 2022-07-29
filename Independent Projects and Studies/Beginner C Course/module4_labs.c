@@ -262,8 +262,9 @@ void main()
 /*5
 Scenario
 Write a program that sorts ten floating-point numbers in descending order.
-
-In this case, the data in the array is initialized (see code in the editor). After each execution of the inner loop, your program should print the values on the screen (with another small loop). You can use the "%.2f" format in the printf function.
+In this case, the data in the array is initialized (see code in the editor). 
+After each execution of the inner loop, your program should print the values on the screen (with another small loop). 
+You can use the "%.2f" format in the printf function.
 
 Your version of the program must print the same result as the expected output.
 
@@ -278,36 +279,43 @@ Expected output
 9.20 8.30 7.30 6.40 6.20 5.60 4.30 2.30 1.90 0.10
 9.20 8.30 7.30 6.40 6.20 5.60 4.30 2.30 1.90 0.10
 */
+
+/*
 #include <stdio.h>
 
 int main()
 {
-	float numbers[10] = {5.6, 4.3, 6.2, 6.4, 7.3, 2.3, 8.3, 9.2, 0.1, 1.9};
-	int i, swap, placeholder, check;
+	float numbers[10] = {5.6, 4.3, 6.2, 6.4, 7.3, 2.3, 8.3, 9.2, 0.1, 1.9}, placeholder;
+	int i, j, swap;
 
 
-	for(i=0; i<10; i++)
-	{
+	swap = 0;
+	while(swap == 0)
+	{	
 		swap = 1;
-		while(swap == 1)
+		for(i=0; i<9; i++)
 		{
-			swap = 0;
-			if(numbers[i+check]>numbers[i])
+			if(numbers[i] > numbers[i+1])
 			{
-				placeholder = 
-
+				placeholder = numbers[i+1];
+				numbers[i+1] = numbers[i];
+				numbers[i] = placeholder;
+				swap=0;
 			}
 
+		}
+		for(j=0; j < 10; j++)
+		{
+			printf("%.2f ", numbers[j]);
 
 		}
-
-
+		printf("\n");
 	}
 
 
 	return 0;
 }
-
+*/
 
 /*6
 Scenario
@@ -322,7 +330,7 @@ Expected output
 1 1
 1 1 1 1 1
 1 1 2 3 5 8
-
+*/
 #include <stdio.h>
 
 int main()
@@ -355,7 +363,7 @@ int main()
 
 	return 0;
 }
-*/
+
 
 /*7
 Scenario
