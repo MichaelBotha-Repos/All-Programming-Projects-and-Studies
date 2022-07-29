@@ -269,16 +269,37 @@ Expected output
 9.20 8.30 7.30 6.40 6.20 5.60 4.30 2.30 1.90 0.10
 9.20 8.30 7.30 6.40 6.20 5.60 4.30 2.30 1.90 0.10
 9.20 8.30 7.30 6.40 6.20 5.60 4.30 2.30 1.90 0.10
-
+*/
 #include <stdio.h>
 
 int main()
 {
 	float numbers[10] = {5.6, 4.3, 6.2, 6.4, 7.3, 2.3, 8.3, 9.2, 0.1, 1.9};
-	/* your code 
+	int i, swap, placeholder, check;
+
+
+	for(i=0; i<10; i++)
+	{
+		swap = 1;
+		while(swap == 1)
+		{
+			swap = 0;
+			if(numbers[i+check]>numbers[i])
+			{
+				placeholder = 
+
+			}
+
+
+		}
+
+
+	}
+
+
 	return 0;
 }
-*/
+
 
 /*6
 Scenario
