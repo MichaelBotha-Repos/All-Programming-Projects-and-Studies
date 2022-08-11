@@ -1,11 +1,13 @@
 #include <stdio.h>
-#include <string.h>
 
-int main()
+void main()
 {
-    char name[] = "Amy ";
-    int length = strlen(name);
-    printf("%i", length);
+    int* p, val = 10;
 
-    return 0;
+    p = &val;
+
+    printf("%i --> %i", p, *p);
+
+
+
 }

@@ -330,7 +330,7 @@ Expected output
 1 1
 1 1 1 1 1
 1 1 2 3 5 8
-*/
+
 #include <stdio.h>
 
 int main()
@@ -363,13 +363,15 @@ int main()
 
 	return 0;
 }
-
+*/
 
 /*7
 Scenario
-Write a program that asks the user to provide four names, and prints them in reverse order. For now, assume that each name consists of a maximum of 20 letters.
+Write a program that asks the user to provide four names, and prints them in reverse order. 
+For now, assume that each name consists of a maximum of 20 letters.
 
-Because you probably don't yet know about multidimensional arrays, use four variables. Later you should store data of this kind in a 2D array (or a more advanced data type).
+Because you probably don't yet know about multidimensional arrays, use four variables. 
+Later you should store data of this kind in a 2D array (or a more advanced data type).
 
 Your version of the program must print the same result as the expected output.
 
@@ -384,13 +386,38 @@ Liam
 Noah
 Olivia
 Emma
-*/
 
+#include <stdio.h>
+
+int main()
+{	
+	char names[4][20];
+
+	for(int i = 0; i <4; i++)
+	{
+		printf("Please enter name %i:\n", i+1);
+		scanf("%s", &names[i][0]);
+
+	}
+	for(int x=3; x>=0; x--)
+	{
+			printf("%s", names[x]);
+			printf("\n");
+
+	}
+
+
+	return 0;
+
+}
+*/
 /*8
 Scenario
-Write a program that asks the user to enter four numbers as strings, and creates a human readable IP address from them. Your main task is to think about an appropriate data size to store the IP address. After this, your program should print the string.
+Write a program that asks the user to enter four numbers as strings, and creates a human readable IP address from them. 
+Your main task is to think about an appropriate data size to store the IP address. After this, your program should print the string.
 
-To insert four numbers (and three dots) into a string, you may use the sprintf function (not described), copy all the characters manually, or use another method more suitable for you.
+To insert four numbers (and three dots) into a string, you may use the sprintf function (not described), 
+copy all the characters manually, or use another method more suitable for you.
 
 Your version of the program must print the same result as the expected output.
 
@@ -411,11 +438,32 @@ Sample input
 
 Expected output
 255.255.255.255
+
+#include <stdio.h>
+
+int main()
+{
+	char one[3], two[3], three[4], four[4];
+
+	printf("Please enter 1:\n");
+	scanf("%s", &one);
+	printf("Please enter 2:\n");
+	scanf("%s", &two);
+	printf("Please enter 3:\n");
+	scanf("%s", &three);
+	printf("Please enter 4:\n");
+	scanf("%s", &four);
+
+	printf("%s.%s.%s.%s", one, two, three, four);
+
+	return 0;
+}
 */
 
 /*9
 Scenario
-Write a simple program that prints the size of types in your architecture. Check this for all basic types, variables of some types, and some pointers - like the expected output list below.
+Write a simple program that prints the size of types in your architecture. 
+Check this for all basic types, variables of some types, and some pointers - like the expected output list below.
 
 Your version of the program must print the same result as the expected output, unless you are working in a different architecture.
 
@@ -439,18 +487,52 @@ Expected output
 4 bytes for address of char variable
 4 bytes for pointer to char variable
 1 byte for value stored by pointer to char variable
-*/
+
+#include <stdio.h>
+
+int main()
+{
+	char c;
+	short s;
+	int i; 
+	long l;
+	long long ll;
+	float f;
+	double d;
+	int *p;
+
+
+	printf("%i\n", sizeof(char));
+	printf("%i\n", sizeof(c));
+	printf("%i\n", sizeof(short));
+	printf("%i\n", sizeof(s));
+	printf("%i\n", sizeof(int));
+	printf("%i\n", sizeof(i));
+	printf("%i\n", sizeof(long));
+	printf("%i\n", sizeof(l));
+	printf("%i\n", sizeof(long long));
+	printf("%i\n", sizeof(ll));
+	printf("%i\n", sizeof(float));
+	printf("%i\n", sizeof(f));
+	printf("%i\n", sizeof(double));
+	printf("%i\n", sizeof(d));
+	printf("%i\n", sizeof(int *));
+	printf("%i\n", sizeof(p));
+	// printf("%i\n", sizeof());
+	// printf("%i\n", sizeof());
+	// printf("%i\n", sizeof());
+
+	return 0;
+}*/
 
 /*10
 Scenario
-Check the program in the editor. It copies values from one array to another, adding 1.0. Then it's supposed to print the numbers from the middle point of the new array to both ends, alternately.
-
+Check the program in the editor. It copies values from one array to another, adding 1.0. 
+Then it's supposed to print the numbers from the middle point of the new array to both ends, alternately
 Warning: the midpoint is betwen two cells - one before and one after - start with them.
-
 We'll use pointers to make a copy, in order to show you this kind of operation (but in this case, you can use array indexing).
-
-Find all possible compilation errors and logic errors. Fix them. Your version of the program must print the same result as the expected output.
-
+Find all possible compilation errors and logic errors. Fix them. 
+Your version of the program must print the same result as the expected output.
 Before you use the compiler, try to find the errors only by manual code analysis.
 
 Expected output

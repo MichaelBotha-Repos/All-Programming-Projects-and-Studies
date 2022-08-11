@@ -2,7 +2,8 @@
 Scenario
 Write a program that creates a chessboard, sets all the pieces on it and then displays the contents of the board.
 
-Create a two-dimensional array, fill it with data and print a letter when a piece is on the field and a space when there is no piece. Store one letter for one piece.
+Create a two-dimensional array, fill it with data and print a letter when a piece is on the field and a space when there is no piece. 
+Store one letter for one piece.
 
 For now, we don't need any information about the color of the pieces.
 
@@ -27,16 +28,46 @@ PPPPPPPP
 RNBQKBNR
 
 */
+/*
+#include <stdio.h>
 
+void main()
+{
+	char chessboard[8][8] = {{'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'},
+							 {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+							 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+							 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+							 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+							 {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+							 {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+							 {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
+	char* board_ptr;
+
+	board_ptr = &chessboard[0][0];
+
+	for(int i=0; i <64; i++)
+	{
+		printf("%c", *(board_ptr+i));
+		if((((i+1)%8) == 0) & (i != 0))
+		{
+			printf("\n");
+		}
+
+	}
+
+
+}
+*/
 /*2
 Scenario
-Write a program that asks the user to enter a number, and prints which day of the week that number corresponds to. The days are indexed from 0 (Sunday) to 6 (Saturday).
-
+Write a program that asks the user to enter a number, and prints which day of the week that number corresponds to. 
+The days are indexed from 0 (Sunday) to 6 (Saturday).
 Store the names of the days in an array and print the name of the day in two ways:
 
 with pointer arithmetic;
 with array indexing.
-Before the program gets a value from the array, it must first check if the given day is greater than or equal to zero and less than 7. If not, it should print the message: Error, no such day..
+Before the program gets a value from the array, it must first check if the given day is greater than or equal to zero and less than 7. 
+If not, it should print the message: Error, no such day..
 
 Your version of the program must print the same result as the expected output.
 
@@ -60,14 +91,42 @@ Sample input
 Sample output
 Error, no such day.
 */
+/*
+#include <stdio.h>
+
+void main(void)
+{
+	char days[7][9]={{"Sunday"}, {"Monday"}, {"Tuesday"}, {"Wednesday"}, {"Thursday"}, {"Friday"}, {"Saturday"}}; 
+	char* days_ptr = &days[0][0];
+	int user_input;
+
+	printf("Please enter the day of the week as a number:\n");
+	scanf("%i", &user_input);
+
+	if(user_input > 6)
+	{
+		printf("Error, no such day");
+	}
+	else
+	{
+		
+		printf("Pointer version: %s\n", days_ptr+(9*user_input) );
+		printf("array index version: %s", days[user_input]);
+
+	}
+}
+*/
 
 /*3
 Scenario
 Write a program that allocates memory of a size requested by the user.
 
-This program requests a number from the user and checks if that number is less than 1 MB (1024*1024). If it's not, then the program prints the message: Too much memory requested..
+This program requests a number from the user and checks if that number is less than 1 MB (1024*1024). 
+If it's not, then the program prints the message: Too much memory requested..
 
-In the next step, the program allocates a one-dimesional array of characters (char) and fills this array with characters from "A" to "Z" - the first element (index 0) contains "A", the 26th element (index 25) contains "Z", the 27th element (index 26) contains "A" and so on.
+In the next step, the program allocates a one-dimesional array of characters (char) and fills this 
+array with characters from "A" to "Z" - the first element (index 0) contains "A", the 26th element (index 25) contains "Z", 
+the 27th element (index 26) contains "A" and so on.
 
 Then, the program prints the first 400 bytes of an array (or the whole array if it's smaller than 400 characters), 40 characters in each row.
 
@@ -104,6 +163,42 @@ Sample input
 Expected output
 Too much memory requested.
 */
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+	char* array_ptr;
+	int user_input;
+	char* array_ptr_start;
+
+	printf("Please enter a memory size in bytes");
+	scanf("%i", &user_input);
+	if( user_input > (1024*1024))
+	{
+
+		printf("Too much memory requested");
+	}
+	else
+	{
+		array_ptr = (char*)malloc(user_input);
+		array_ptr_start = array_ptr;
+		for(int i= 0; i < user_input; i++)
+		{
+			*(array_ptr + i) = ((i+1) % 26) + 65;
+
+		}
+
+		for( int j=0; j< user_input; j++)
+		{
+			printf("%c", *(array_ptr_start+j));
+
+		}
+
+	}
+}
+*/
 
 /*4
 Scenario
@@ -113,7 +208,8 @@ First, your program should ask the user to specify the size (height and weight a
 
 If the size is greater than 20, the program should print the message: Matrix too big..
 
-Then it should allocate a matrix and fill this matrix with appropriate values (remember: the element of [0][0] should store the multiplication result of 1 and 1).
+Then it should allocate a matrix and fill this matrix with appropriate values 
+(remember: the element of [0][0] should store the multiplication result of 1 and 1).
 
 Then the program should print the multiplication table, four characters per cell. Finally, all memory must be freed.
 
@@ -136,7 +232,46 @@ Sample input
 Expected output
 Matrix too big.
 */
+/*
+#include <stdio.h>
+#include <stdlib.h>
 
+void main()
+{
+	int input;
+	int* matrix_ptr;
+
+	printf("Please enter value:\n");
+	scanf("%i", &input);
+	matrix_ptr = (int*)malloc(6*(input+1));
+
+	for(int i=0; i<input; i++)
+	{
+		for(int j=0; j<6; j++)
+		{
+			matrix_ptr[(i*6) + j] = (i+1)*(j+1);
+			printf("%i", (i+1)*(j+1));
+
+		}
+		printf("\n");
+
+
+	}
+
+	for(int x=0; x<input; x++)
+	{
+		for(int y=0; y<6; y++)
+		{
+			printf("%i  ", *(matrix_ptr + (x*6) + y));
+
+		}
+		printf("\n");
+
+	}
+
+
+}
+*/
 /*5
 Scenario
 Analyze the code we've provided in the editor. Write additional lines of code to call the functions defined.
@@ -240,7 +375,7 @@ int main(void)
 Scenario
 Check the program in the editor. Write a body of functions where indicated in order to obtain the correct result.
 
-The function getMaxOfThreeshould return the largest number among three given numbers.
+The function getMaxOfThree should return the largest number among three given numbers.
 
 Your version of the program must print the same result as the expected output.
 
@@ -252,7 +387,7 @@ Biggest value: 556.40
 
 double getMaxOfThree(double paramA, double paramB, double paramC)
 {
-	/* your code 
+
 }
 
 int main(void)
@@ -267,11 +402,14 @@ int main(void)
 
 /*8
 Scenario
-Check the program in the editor. Write a function that is a simpler version of the power function. It takes two parameters, one of type double and one of type int.
+Check the program in the editor. Write a function that is a simpler version of the power function. 
+It takes two parameters, one of type double and one of type int.
 
-The first argument is the base and the second is the exponent. You can use a forloop to multiply the first argument as many times as the second argument says.
+The first argument is the base and the second is the exponent. 
+You can use a forloop to multiply the first argument as many times as the second argument says.
 
-Because it's a simple version, you are only required to handle positive integers and 0. Separate the declaration of the function from its full definition.
+Because it's a simple version, you are only required to handle positive integers and 0. 
+Separate the declaration of the function from its full definition.
 
 Your version of the program must print the same result as the expected output.
 
@@ -280,11 +418,21 @@ Thirty five: 25.0000
 Pi squared: 9.8696
 Pi cubed: 31.0063
 Not so big number: 62.8206
-Million: 1000000.0000
+Million: 1000000.0000 
 
 #include <stdio.h>
 
-// your code 
+double power(double base, int exponent)
+{
+	double answer = base;
+	for(int i=1; i<(exponent); i++)
+	{
+		answer*= base;
+
+	}
+	return answer;
+
+}
 
 int main(void)
 {
@@ -300,7 +448,6 @@ int main(void)
 	printf("Million: %.4f\n", millionValue);
 	return 0;
 }
-/* your code 
 */
 
 /*9
