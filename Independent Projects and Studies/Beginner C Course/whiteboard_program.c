@@ -1,13 +1,9 @@
 #include <stdio.h>
 
-void main()
+int main(void) 
 {
-    int* p, val = 10;
-
-    p = &val;
-
-    printf("%i --> %i", p, *p);
-
-
-
+	
+	char *name = "c:\\dir\\file";
+	printf("%s", name);
+	return 0;
 }
