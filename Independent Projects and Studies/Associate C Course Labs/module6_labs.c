@@ -14,9 +14,33 @@ James Johnson
 Patricia Williams
 John Brown 
 */
+/*
+#include <stdio.h>
+struct NAME
+{
+	char first[20];
+	char last[20];
 
+};
+
+int main()
+{
+	struct NAME a = {"Mary", "Smith"}, b ={"James", "Johnson"}, c = {"Patricia", "Williams"}, d= {"John", "Brown"};
+    struct NAME names[] = {a, b, c, d};
+
+    for(int i=0; i<4; i++)
+	{
+		printf("%s %s\n", names[i].first, names[i].last);
+
+	}
+
+	return 0;
+
+}
+*/
 /*2
-Check the program in the editor. Add code to print all the neighbors in ascending and descending order. Use only pointers and loops (don't use the houseX variables).
+Check the program in the editor. Add code to print all the neighbors in ascending and descending order. Use only pointers and loops 
+(don't use the houseX variables).
 
 Your version of the program must print the same result as the expected output.
 
@@ -31,7 +55,8 @@ Descending order:
 5
 3
 1
-
+*/
+/*
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -63,20 +88,37 @@ int main(void)
 	struct house *firstHouse = &house1;
 	struct house *lastHouse = &house4;
 	struct house *current;
-	// your code 
+	
+	current = firstHouse;
+
+	printf("Ascending Order:\n");
+	while(current != NULL)
+	{
+		printf("%i\n", current->houseNumber);
+		current = current -> next;
+
+	}
+	printf("Descending Order:\n");
+	current = lastHouse;
+	while(current != NULL)
+	{
+		printf("%i\n", current->houseNumber);
+		current =  current -> previous;
+	}
+
 	return 0;
 }
 */
 
+
 /*3
-Write a program that creates a FIFO queue and prints some values. For this lab, use structures, pointers to structures and the malloc function.
-
-Use the values from the array included in the code fragment. Create one element of a queue for one element of an array (there are ten elements).
-
-After you have created the list, print the first five values of the queue and then the first seven values of the queue. Free up the memory.
-
+Write a program that creates a FIFO queue and prints some values. 
+For this lab, use structures, pointers to structures and the malloc function.
+Use the values from the array included in the code fragment. 
+Create one element of a queue for one element of an array (there are ten elements).
+After you have created the list, print the first five values of the queue and then the first seven values of the queue. 
+Free up the memory.
 After all the operations have been completed, print the message: Memory is freed..
-
 Your version of the program must print the same result as the expected output.
 
 Expected output
@@ -95,7 +137,8 @@ First 7 values
 8
 9
 Memory is freed
-
+*/
+/*
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -104,16 +147,48 @@ struct element
 	int value;
 	struct element *next;
 };
+
 int main(void)
 {
-	int values[10] = { 2, 4, 5, 6, 7, 8, 9, 1, 3, 0};
-	// your code 
+	int values[10] = {2, 4, 5, 6, 7, 8, 9, 1, 3, 0};
+	struct element *elem1, *elem2, *elem3, *elem4, *elem5, *elem6, *elem7, *elem8, *elem9, *elem10, *current;
+
+	elem1 = (struct element *) malloc(sizeof(struct element));
+	elem2 = elem1-> next = (struct element *) malloc(sizeof(struct element));
+	elem3 = elem2-> next = (struct element *) malloc(sizeof(struct element));
+	elem4 = elem3-> next = (struct element *) malloc(sizeof(struct element));
+	elem5 = elem4-> next = (struct element *) malloc(sizeof(struct element));
+	elem6 = elem5-> next = (struct element *) malloc(sizeof(struct element));
+	elem7 = elem6-> next = (struct element *) malloc(sizeof(struct element));
+	elem8 = elem7-> next = (struct element *) malloc(sizeof(struct element));
+	elem9 = elem8-> next = (struct element *) malloc(sizeof(struct element));
+	elem10 = elem9-> next = (struct element *) malloc(sizeof(struct element));
+	elem10-> next = NULL;
+	current = elem1;
+
+	for(int i =0; i<10; i++)
+	{
+		current -> value = values[i];
+		current = current -> next;
+
+	}
+
+	current = elem1;
+	for(int j =0; j<5; j++)
+	{
+		printf("%i",current->value);
+		current = current -> next;
+
+	}
+
+
 	return 0;
 }
 */
 
 /*4
-Write a function that computes the square of a given floating-point number and returns its value. Separate the declaration of the function from its full definition.
+Write a function that computes the square of a given floating-point number and returns its value. 
+Separate the declaration of the function from its full definition.
 
 Write a test code to test the function with some values. Do not limit yourself only to those values we've provided you.
 
@@ -123,33 +198,47 @@ square of 6.00 is 36.00
 square of 2.50 is 6.25
 square of 12.12 is 146.89
 square of 345.68 is 119493.29
-
+*/
+/*
 #include <stdio.h>
 
-// your code 
+float square(float val)
+{
+	return (val * val);
+}
 
 int main()
 {
-	// your code 
+	float values[] = {2, 6, 2.5, 12.12, 345.68};
+
+	for(int i=0; i < 5; i++)
+	{
+		printf("square of %.2f is %.2f \n", values[i], square(values[i]));
+
+	}
+
 	return 0;
 }
-// your code 
 
 */
 
 /*5
-Write a function that checks whether or not a given string is a valid IP address (in human-readable form, of course). This function should return 1 if the address is valid, and 0 if not.
+Write a function that checks whether or not a given string is a valid IP address (in human-readable form, of course). 
+This function should return 1 if the address is valid, and 0 if not.
 
 Your function should check if:
 
 there are four parts in the string, separated by dots;
 each part contains only digits,
 each number is in the range of 0 to 255, inclusive.
-For converting string fragments to integer values you can use the strtol, atoi or sscanf functions. Separate the declaration of the function from its full definition.
+For converting string fragments to integer values you can use the strtol, atoi or sscanf functions. 
+Separate the declaration of the function from its full definition.
 
-Write a second function that calls the first one and then prints an appropriate message: 127.0.0.1 is a valid IP address or a.b.c.d is not a valid IP address.
+Write a second function that calls the first one and then prints an appropriate message: 
+127.0.0.1 is a valid IP address or a.b.c.d is not a valid IP address.
 
-Write a test code to test the function with some values - call a second function. Do not limit yourself only to those values we've provided you.
+Write a test code to test the function with some values - call a second function. 
+Do not limit yourself only to those values we've provided you.
 
 Expected output
 127.0.0.1 is a valid IP address
@@ -158,21 +247,82 @@ Expected output
 127.zero.0.1 is not a valid IP address
 127.297.0.1 is not a valid IP address
 127.2555.0.1 is not a valid IP address
-
+*/
+/*
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-// your code 
-
-int main()
+int check_valid_ip(char ip_str[])
 {
-	// your code 
+	char octet[4], *octet_ptr;
+	int ip[4], cntr=0;
+
+	octet_ptr = ip_str;
+
+	for(int i=0; i<15; i++)
+	{
+		if(ip_str[i]== 46)
+		{
+			strncpy(octet, octet_ptr , &ip_str[i] - octet_ptr);
+			ip[cntr] = atoi(octet);
+			if(ip[cntr]<0 || ip[cntr]>255)
+			{
+				return 0;
+			}
+			octet_ptr = &ip_str[i] + 1;
+			cntr++;
+		}
+		else if(ip_str[i]== 0)
+		{
+			strncpy(octet, octet_ptr , &ip_str[i] - octet_ptr);
+			ip[i] = atoi(octet);
+			cntr++;
+			break;
+		}
+	}
+	if(cntr!= 4)
+	{
+		return 0;
+	}
+
+	return 1;
+}
+
+void check_response(char ip_str[])
+{
+	int result = check_valid_ip(ip_str);
+
+	if(result ==1)
+	{
+		printf("%s is a valid ip address", ip_str);
+
+	}
+	else
+	{
+		printf("%s is not a valid ip address", ip_str);
+
+	}
+
+
+}
+int main()
+{	
+	char ip_str[16]; 
+	int result;
+	
+
+	printf("Please enter an IP address:\n");
+	scanf("%s", ip_str);
+	check_response(ip_str);
+	
 	return 0;
 }
-// your code 
 */
 
 /*6
-Write a function that checks which of two given matrices is greater. To simplify the function parameter list, you can assume that both matrices are equal in size and are square.
+Write a function that checks which of two given matrices is greater. 
+To simplify the function parameter list, you can assume that both matrices are equal in size and are square.
 
 This function should return:
 
@@ -181,11 +331,14 @@ This function should return:
 0 if both matrices are equal - this means they have exactly the same values.
 For this task, we assume that a matrix is smaller than another matrix when the first element which is different is smaller in that matrix.
 
-We analyze matrices from left to right and from top to bottom. Separate the declaration of the function from its full definition.
+We analyze matrices from left to right and from top to bottom. 
+Separate the declaration of the function from its full definition.
 
-Write a second function that calls the first one and then prints an appropriate message: matrixA is smaller than matrixB, matrixA is greater than matrixB, or Both matrices are equal.
+Write a second function that calls the first one and then prints an appropriate message: matrixA is smaller than matrixB, 
+matrixA is greater than matrixB, or Both matrices are equal.
 
-Write a code to test it with some values - create three matrices, fill them with values and compare them in all possible (six) cases. Call a second function. As always, do not limit yourself only to the cases already given.
+Write a code to test it with some values - create three matrices, fill them with values and compare them in all possible (six) cases. 
+Call a second function. As always, do not limit yourself only to the cases already given.
 
 Note: you can use a single pointer to int type to pass the array.
 
@@ -196,17 +349,42 @@ matrixA is greater than matrixB
 Both matrices are equal.
 matrixA is smaller than matrixB
 matrixA is greater than matrixB
-
+*/
+/*
 #include <stdio.h>
 
-// your code 
+int matrix_analyser(int * m1, int * m2)
+{
+	for(int i=0; i<9; i++)
+	{
+		printf("%i --> %i",*(m1+i), *(m2+i));
+		if(*(m1+i) > *(m2+i))
+		{
+			return 1;
+		}
+		else if (*(m1+i) < *(m2+i))
+		{
+			return -1;
+		}
+
+	}
+
+	return 0;
+
+}
 
 int main()
 {
-	// your code 
+	int matrix_a[3][3] = {{1,2,3}, {4,5,6}, {7,8,9}};
+	int matrix_b[3][3] = {{1,2,1}, {4,5,6}, {7,8,9}};
+	int result;
+
+	result = matrix_analyser(matrix_a, matrix_b);
+	printf("%i", result);
+
 	return 0;
 }
-// your code 
+ 
 */
 
 /*7
