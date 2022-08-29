@@ -427,12 +427,59 @@ mul 2 5
 
 Expected output
 mul 2 5: 10
-
+*/
+/*
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int add(int val1, int val2)
+{
+	return (val1+val2);
+}
+int sub(int val1, int val2)
+{
+	return (val1-val2);
+}
+int mul(int val1, int val2)
+{
+	return (val1*val2);
+}
 
 int main(int argc, char *argv[])
 {
-	// your code 
+	char val1[5], val2[5];
+	char val1_int, val2_int;
+	if(argc > 1)
+	{
+		strcpy(val1, argv[2]);
+		strcpy(val2, argv[3]);
+		val1_int = atoi(val1);
+		val2_int = atoi(val2);
+
+
+		if(!(strcmp(argv[1], "mul")))
+		{
+			printf("Multiply");
+			printf(" :%i", mul(val1_int, val2_int));
+		}
+		else if(!(strcmp(argv[1], "add")))
+		{
+			printf("Add");
+			printf(" :%i", add(val1_int, val2_int));
+		}
+		else if(!(strcmp(argv[1], "sub")))
+		{
+			printf("Subtract");
+			printf(" :%i", sub(val1_int, val2_int));
+		}
+		else
+		{
+			printf("Incorrect operation");
+
+		}
+
+	}
 	return 0;
 }
 */
@@ -442,15 +489,18 @@ Write a program that prints two triangles: one is a normal triangle consisting o
 
 Remember to escape the backslash with a backslash (not a play on words!).
 
-A Floyd's triangle consisting of numbers in consecutive order: in the first row, we have only one number: 1; in the second row, two numbers: 2 3; in the third row: 4 5 6 and so on.
+A Floyd's triangle consisting of numbers in consecutive order: in the first row, we have only one number:
+ 1; in the second row, two numbers: 2 3; in the third row: 4 5 6 and so on.
 
 Your program should ask the user for the size of both triangles (just one number - the triangles should be the same size).
 
 After that, your program should print both triangles. To print the Floyd's triangle, you may use the "%3d" format in the printf function.
 
-Divide your program into files: one file for the classic triangle function, one for the Floyd's triangle function, one header file with the prototypes of both functions, and finally a file with the main function.
+Divide your program into files: one file for the classic triangle function, one for the Floyd's triangle function, 
+one header file with the prototypes of both functions, and finally a file with the main function.
 
-Practice adding and removing files from your program/project/solution. If you can, test it in different environments (different OS/different IDE/no IDE).
+Practice adding and removing files from your program/project/solution. 
+If you can, test it in different environments (different OS/different IDE/no IDE).
 
 Your version of the program must print the same result as the expected output.
 
