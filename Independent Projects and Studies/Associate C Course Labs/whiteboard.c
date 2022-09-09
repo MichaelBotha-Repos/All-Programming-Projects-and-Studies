@@ -1,13 +1,18 @@
+#include <stdio.h>
+#define test 1##2-2
 
-int factorial(int n)
+int main()
 {
-    if(n==1)
-    {
-        return 1; 
-    }
-    else
-    {
-        return n * factorial(n-1);
-    }
-}
+    int x =
 
+    #ifdef test
+        1
+    #else
+        2
+    #endif
+    ;
+
+    printf("%i %i", x, test);
+
+    return 0;
+}
