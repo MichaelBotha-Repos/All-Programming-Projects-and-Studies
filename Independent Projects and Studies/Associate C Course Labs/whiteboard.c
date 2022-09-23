@@ -1,18 +1,23 @@
 #include <stdio.h>
-#define test 1##2-2
+#include <string.h>
 
 int main()
 {
-    int x =
+    char names[][90] = {
+                            "The Way Love Should be",
+                            "Bad Wrap",
+                            "Terrible Moods"
+                        };
+    char *names2[] = {
+                            "The Way Love Should be",
+                            "Bad Wrap",
+                            "Terrible Moods"
+                        };
 
-    #ifdef test
-        1
-    #else
-        2
-    #endif
-    ;
+    **(names + 10) = 'A';
 
-    printf("%i %i", x, test);
+    printf("%s  \n%s", names[0], names2[0]);
+
 
     return 0;
 }
