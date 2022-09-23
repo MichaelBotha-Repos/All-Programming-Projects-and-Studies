@@ -44,23 +44,30 @@ int main(int argc, char * argv[])
         }
     }
 
-    int comma_count = 0;
-    string is_stop;
+    int comma_count = 0, bool_ready_flag = 0;
+    string is_stop = "";
     while(!text_file.eof())
     {   
         text_file.get(file_char); //read single character
+        if(text_file.eof())
+        {
+            file_char = '\n';
+            text_file.close();
+        }
+
         if(file_char == ',') //check for the "," delimiter
         {
             ++comma_count;
             continue;
         }
-        if(file_char == ' ' && is_stop[-1] == 'e') // if there is a space just before the end of the line
+        else if(file_char == ' ' && comma_count == 1)
         {
+            bool_ready_flag = 1;
             continue;
         }
         // Ensure that the character is a capital/lowercase letter, an apostraphe, hyphen, or space
         // which are valid name characters
-        if(comma_count == 0 && 
+        if(bool_ready_flag == 0 && 
             (   
                 (file_char > 64 && file_char < 90) || 
                 (file_char > 96 && file_char < 123) || 
@@ -72,7 +79,7 @@ int main(int argc, char * argv[])
         {
             all_stations[number_of_stations].name += file_char; //conacatenate char to station name in appropriate struct
         }
-        else if(comma_count == 1)
+        else if(bool_ready_flag == 1)
         {
             if( 
                 file_char == 'F' ||
@@ -87,10 +94,12 @@ int main(int argc, char * argv[])
             {
                 is_stop += file_char;
             }
-            else if((file_char == '\n'|| text_file.eof()) && is_stop.length() > 0)
+            else if(file_char == ' ')
             {
-                //cout<< endl << is_stop;   
-                
+                continue;
+            }
+            else if(file_char == '\n')
+            {    
                 if(is_stop == "True")
                 {
                     all_stations[number_of_stations].stop = true;
@@ -107,10 +116,7 @@ int main(int argc, char * argv[])
                 is_stop.clear();
                 comma_count--;
                 ++number_of_stations;
-            }
-            else if(file_char == ' ')
-            {
-                continue;
+                bool_ready_flag = 0;
             }
             else
             {
@@ -120,13 +126,20 @@ int main(int argc, char * argv[])
             }
         }
         else
-        {
-            cout << "Incorrect format in text - too many commas";
-            text_file.close();
-            return 0;
-
+        {   
+            if(file_char == '\n' && text_file.eof())
+            {
+                break;
+            }
+            else
+            {
+                cout << "Incorrect format in text";
+                text_file.close();
+                return 0;
+            } 
         }
     }
+    // **check current station did not just have spaces after without a comma
     int stop_number = 0, express_number = 0;
     for(int i=0; i < number_of_stations; i++)
     {
@@ -140,26 +153,24 @@ int main(int argc, char * argv[])
         }
         else
         {
-            express_stations[express_number] == all_stations[i].name;
+            express_stations[express_number] = all_stations[i].name;
         }
 
     }
 
     if(number_of_stations == 2)
     {
-        cout << "This train stops at " << stopping_stations[0] << " and " << stopping_stations[1] << " only";
+        cout << "\nThis train stops at " << stopping_stations[0] << " and " << stopping_stations[1] << " only";
     }
     else if(number_of_stations == number_of_stops)
     {
-        cout << "This train stops at all stations";
+        cout << "\nThis train stops at all stations";
 
     }
     else if( number_of_stops == (number_of_stations-1))
     {
-        cout << "This train stops at all stations except " << stopping_stations[0];
+        cout << "\nThis train stops at all stations except " << express_stations[0];
     }
 
-
-    text_file.close();
     return 0;
 }
