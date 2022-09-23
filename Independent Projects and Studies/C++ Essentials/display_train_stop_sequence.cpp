@@ -133,9 +133,11 @@ int main(int argc, char * argv[])
         cout << endl << all_stations[i].name << "--->" << all_stations[i].stop;
 
         if(all_stations[i].stop == true)
+        {
             number_of_stops ++;
             stopping_stations[stop_number] = all_stations[i].name;
             stop_number++;
+        }
         else
         {
             express_stations[express_number] == all_stations[i].name;
