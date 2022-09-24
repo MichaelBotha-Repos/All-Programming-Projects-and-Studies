@@ -1,6 +1,7 @@
-Central, True
-Roma St, False
-Juliet, True
-South Brisbane, True 
-South Bank, True
-Thornlands, True
+Central, True 
+Roma St, True
+Coorparoo, False
+Station, True 
+Station, True
+Cannon Hiil, True
+
