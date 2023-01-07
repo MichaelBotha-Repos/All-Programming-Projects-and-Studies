@@ -13,6 +13,6 @@ To run the program:
     2.) Open a PowerShell session and navigate to the directory housing the 
         program.
 
-    3.) Select/run the "display_train_stop_sequence.exe" leave a space and enter the 
+    3.) Select the "display_train_stop_sequence.exe" leave a space and enter the 
         file path of the Stop Sequence tex file. If it is in the same directory
         as the program simply enter .\textfile.txt 

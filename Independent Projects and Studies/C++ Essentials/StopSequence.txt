@@ -1,6 +1,6 @@
 Central, True 
 Roma St, True
-Coorparoo, False
+Coorparoo, True
 Station, True 
 Station, True
 Cannon Hiil, True

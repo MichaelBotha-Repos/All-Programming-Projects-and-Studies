@@ -1,17 +1,34 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int main(int argc, char *argv[])
+// you can use includes, for example:
+// #include <algorithm>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+string solution(string &message, int K) 
 {
-    int test;
-    string test2 = "Hello";
+    string new_string;
 
-    cout << "Please enter a value:" << endl;
-    cin >> test;
+    if(message.length() > K)
+    {
+        message.resize(K);
+        message.shrink_to_fit();
 
-    cout << "Value multiplied by 100 is:\n" << test * 100;
+    }
 
-    cout << test2;
+    cout << message;
+
+    return message;
+}
+
+
+int main()
+{
+
+
     return 0;
 }
