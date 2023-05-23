@@ -2,11 +2,23 @@
 
 class Task:
     """Represents a task"""
-    def __init__(self, description, estimations):
-        self.task_description = description
-        self.task_estimations = estimations
+    def __init__(self):
+        self.task_description = ''
+        self.task_estimations = []
+        self.task_dependencies = []
+        self.chosen_estimation = 0
+        self.add_description()
+        self.add_estimations()
 
-    
+    def add_description(self):
+        print('Please enter a task description:\n')
+        self.task_description = input()
+
+    def add_estimations(self):
+        for i in range(5):
+            estimate = input(f"Please enter the {i + 1} effort estimation for task in man.hours:\n")
+            self.task_estimations.append(estimate)
+        
 
 
 class Project:
@@ -18,13 +30,10 @@ class Project:
 
     def add_task(self):
         '''Method for adding a task '''
-        print('Please enter a task description:\n')
-        description = input()
-        task = [description]
-        for i in range(5):
-            estimate = input(f"Please enter the {i + 1} effort estimation for task in man.hours:\n")
-            task.append(estimate)
-        self.tasks.append(task)
+        self.tasks.append(Task())
+       
+       
+        
 
 
 if __name__ == '__main__':
@@ -46,7 +55,7 @@ if __name__ == '__main__':
                 print("3 - Exit")
                 choice2 = input()
                 if choice2 == '1':
-                    pass
+                    new_project.add_task()
                 elif choice2 == '2':
                     pass
                 elif choice2 == '3':
