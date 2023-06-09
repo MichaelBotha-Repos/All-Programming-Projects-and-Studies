@@ -11,6 +11,10 @@ class Wallet(object):
             raise InsufficientAmount('Not enough available to spend {}'.format(amount)) 
         self.balance -= amount 
 
+    """Original method"""
+    # def add_cash(self, amount): 
+    #     self.balance += amount
+    """Method introducing fault"""
     def add_cash(self, amount): 
-        self.balance += amount 
+        self.balance += amount + 10
 
